@@ -1,9 +1,10 @@
 from pathlib import Path
+from collections import deque
 
 path = Path("input1.txt")
 
 
-def sliding_window_counter(path: Path) -> int:
+def sliding_window_counter1(path: Path) -> int:
     counter = 0
     with open(path, 'r') as f:
         a, b, c = int(f.readline()), int(f.readline()), int(f.readline())
@@ -17,4 +18,33 @@ def sliding_window_counter(path: Path) -> int:
     return counter
 
 
-print(sliding_window_counter(path))
+print(sliding_window_counter1(path))
+
+
+def sliding_window_counter2(path: Path) -> int:
+    counter = 0
+    with open(path, 'r') as f:
+        data = f.readlines()
+        for curr, futur in zip(data, data[3:]):
+            if int(curr) < int(futur):
+                counter += 1
+    return counter
+
+
+print(sliding_window_counter2(path))
+
+
+def sliding_window_counter3(path: Path) -> int:
+    counter = 0
+    with open(path, 'r') as f:
+        a, b, c = int(f.readline()), int(f.readline()), int(f.readline())
+        queue = deque([a, b, c])
+        for line in f:
+            curr = queue.popleft()
+            if curr < int(line):
+                counter += 1
+            queue.append(int(line))
+    return counter
+
+
+print(sliding_window_counter3(path))

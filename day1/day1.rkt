@@ -2,23 +2,16 @@
 
 (define path "input1.txt")
 
-(call-with-input-file path
-  (lambda (in-port)
-    (let loop ()
-      (let ([data (read-line in-port)])
-        (unless (eof-object? data)
-          (displayln data)
-          (loop))))))
+(define (delta-counter path)
+  (with-input-from-file path
+  (lambda ()
+    (let ([curr (string->number (read-line))]
+          [counter 0])
+      (for ([l (in-lines)])
+        (set! l (string->number l))
+        (when (> l curr)
+          (set! counter (add1 counter)))
+        (set! curr l))
+      counter))))
 
-
-(call-with-input-file path
-  (lambda (in-port)
-    (let loop ()
-      (let ([curr (string->number (read-line in-port))]
-            [next (string->number (peek-string 1 0 in-port))])
-        (unless (eof-object? next)
-          (cond
-            [(> next curr) (display curr)])
-          (loop))))))
-
-
+(delta-counter path)
