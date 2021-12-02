@@ -8,13 +8,10 @@ def delta_counter(path: Path):
     with open(path, "r") as f:
         curr = int(f.readline())
         for line in f:
-            try:
-                val = int(line)
-                if val > curr:
-                    counter += 1
-                curr = val
-            except ValueError:
-                break
+            val = int(line)
+            if val > curr:
+                counter += 1
+            curr = val
     return counter
 
 

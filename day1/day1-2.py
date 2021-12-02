@@ -9,14 +9,11 @@ def sliding_window_counter(path: Path) -> int:
         a, b, c = int(f.readline()), int(f.readline()), int(f.readline())
         sum_abc = a + b + c
         for line in f:
-            try:
-                a, b, c = b, c, int(line)
-                new_sum = a + b + c
-                if new_sum > sum_abc:
-                    counter += 1
-                sum_abc = new_sum
-            except ValueError:
-                break
+            a, b, c = b, c, int(line)
+            new_sum = a + b + c
+            if new_sum > sum_abc:
+                counter += 1
+            sum_abc = new_sum
     return counter
 
 
