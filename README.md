@@ -1,3 +1,3 @@
 # Introduction
 
-Repo for the advent of code resolutions. 
+Repo for the advent of code solutions.
