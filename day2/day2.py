@@ -1,6 +1,6 @@
 from pathlib import Path
 
-path = Path("input2.txt")
+path = Path("input.txt")
 
 # Part 1
 

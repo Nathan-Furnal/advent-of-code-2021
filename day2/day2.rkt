@@ -1,6 +1,6 @@
 #lang racket
 
-(define path "input2.txt")
+(define path "input.txt")
 
 ;;; Part 1
 

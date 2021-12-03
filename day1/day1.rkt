@@ -1,7 +1,7 @@
 #lang racket/base
 (require data/queue)
 
-(define path "input1.txt")
+(define path "input.txt")
 
 
 ;;; Part 1

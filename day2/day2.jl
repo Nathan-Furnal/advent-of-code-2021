@@ -1,4 +1,4 @@
-path = "input2.txt"
+path = "input.txt"
 
 arr_split = map(split, readlines(path))
 commands = first.(arr_split)
@@ -18,7 +18,6 @@ function submarine_depth()
     end
     return h_pos * depth
 end
-
 
 print(submarine_depth())    
 

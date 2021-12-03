@@ -1,7 +1,7 @@
 from pathlib import Path
 from collections import deque
 
-path = Path("input1.txt")
+path = Path("input.txt")
 
 # Part 1
 
