@@ -73,8 +73,6 @@ print(num, b_sum, num * b_sum)
 
 # Part 2
 
-numbers, boards = read_input(path)
-
 
 def bingo2(numbers, boards):
     num_last = 0
