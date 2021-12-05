@@ -29,8 +29,7 @@ function compute_rating(arr, start = 1, mode = "oxy")
         return join(arr)
     else
         bit = (mode == "oxy") ? ceil(median(arr[:, start])) : 1 - ceil(median(arr[:, start]))
-        arr = arr[arr[:, start] .== bit, :]
-        compute_rating(arr, start + 1, mode)
+        compute_rating(arr[arr[:, start] .== bit, :], start + 1, mode)
     end
 end
 

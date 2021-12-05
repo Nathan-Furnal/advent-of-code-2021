@@ -10,10 +10,9 @@ def read_input(path):
         boards = []
         numbers = list(map(int, f.readline().split(",")))
         curr = []
+        f.readline()  # First line is useless
         for line in f:
-            if line == "\n" and len(curr) == 0:
-                pass
-            elif line == "\n":
+            if line == "\n" and len(curr) != 0:
                 boards.append(curr)
                 curr = []
             else:
