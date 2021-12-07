@@ -39,3 +39,15 @@ def fuel_cost2(data):
 
 
 print(fuel_cost2(data))
+
+
+def smart_math_answer(
+        data):  # Obtained with the derivative of the cost function
+    window = 1 / 2
+    m = mean(data)
+    down, up = sum_cost(data,
+                        round(m - window)), sum_cost(data, round(m + window))
+    return min(down, up)
+
+
+print(smart_math_answer(data))
