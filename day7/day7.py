@@ -1,6 +1,5 @@
 from pathlib import Path
 from statistics import median, mean
-import math
 
 path = Path("input.txt")
 
