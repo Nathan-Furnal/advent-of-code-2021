@@ -2,9 +2,6 @@ from pathlib import Path
 
 path = Path("input.txt")
 
-uniq_segments = {1: 2, 4: 4, 7: 3, 8: 7}
-in_uniques = lambda x: x in set(uniq_segments.values())
-
 with open(path, 'r') as f:
     data = []
     for line in f:
@@ -17,7 +14,7 @@ with open(path, 'r') as f:
 def count_uniqs(data):
     count = 0
     for elem in data:
-        count += len([*filter(in_uniques, map(len, elem[1]))])
+        count += len([*filter(lambda x : x in {2, 3, 4, 7}, map(len, elem[1]))])
     return count
 
 print(count_uniqs(data))
@@ -41,7 +38,8 @@ print(count_uniqs(data))
 
 def mapping(inp: list, out: list) -> str:
     d = {}
-    inp = sorted(inp, key=len)
+    inp = sorted(map(lambda x : ''.join(sorted(x)), inp), key=len)
+    out = list(map(lambda x : ''.join(sorted(x)), out))
     # unique values
     d[inp[0]] = "1"
     d[inp[1]] = "7"
@@ -62,9 +60,7 @@ def mapping(inp: list, out: list) -> str:
             d[s] = "6"
         else:
             d[s] = "0"
-    sol = ""
-    for st in out:
-        sol += d["".join(i for i in d.keys() if set(i) == set(st))]
+    sol = ''.join(d[st] for st in out)
     return sol
 
 def sums(data):
