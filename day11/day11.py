@@ -25,6 +25,7 @@ def flash(data, pos : tuple[int, int], positions : set[tuple[int, int]]) ->  set
 # Part 1
 
 def count_flashes(data: list[list[int]], n_steps : int) -> int:
+    data = [x.copy() for x in data]
     cnt = 0
     for _ in range(n_steps):
         positions = set()
@@ -40,11 +41,9 @@ def count_flashes(data: list[list[int]], n_steps : int) -> int:
 print(count_flashes(data, 100))
 
 # Part 2
-
-with open(path, 'r') as f:
-    data = [list(map(int, line.strip())) for line in f.readlines()]
     
 def sync_flashes(data: list[list[int]]) -> int:
+    data = [x.copy() for x in data]
     n_steps = 1
     while n_steps:
         positions = set()
