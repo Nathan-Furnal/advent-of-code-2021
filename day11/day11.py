@@ -9,8 +9,6 @@ d = {"up" : (-1, 0), "down" : (1, 0), "left" : (0, -1), "right" : (0, 1),
 
 N, K = len(data), len(data[0])
 
-# Part 1
-
 def flash(data, pos : tuple[int, int], positions : set[tuple[int, int]]) ->  set[tuple[int, int]]:
     x, y = pos
     if data[x][y] == 0:
